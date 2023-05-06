@@ -1,0 +1,140 @@
+/* ---Ogólne--- */
+h1 {
+    text-align: center;
+    margin-top: 100px;
+}
+
+/* ---Główny box do wyświetlania pokemonów---*/
+.whole {
+    position: relative;
+}
+
+#whole__container {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+    width: 70%;
+    max-height: 660px;
+    margin: 100px auto;
+    position: relative;
+    overflow: scroll;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+
+}
+
+/*---Style pokemonów---*/
+
+
+.pokemon {
+    width: 250px;
+    height: 150px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+}
+
+.pokemon:hover {
+    background: rgb(169, 166, 166);
+    cursor: pointer;
+    color: white;
+    transform: scale(1.05);
+    transition: all 0.5s ease-in-out;
+}
+
+/* ---Button ładowania elementów---*/
+
+.btn {
+    text-align: center;
+    width: 150px;
+    height: 50px;
+    color: gray;
+
+    border: 1px solid gray;
+    position: absolute;
+    bottom: 150px;
+    right: 48%;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: gray;
+    color: white;
+}
+
+.btn__load {
+    text-align: center;
+}
+
+/* ---Wyszukiwarka pokemonów--- */
+.whole__search {
+    position: absolute;
+    top: 150px;
+    right: 0;
+    margin-right: 20%;
+    width: 300px;
+    height: 50px;
+    background-color: #c8c8c8;
+    border-radius: 25px;
+    box-sizing: border-box;
+    padding: 7px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.whole__search-item {
+    border-radius: 25px;
+    width: 250px;
+    border: none;
+    padding-left: 15px;
+    font-size: 1.1em;
+    color: gray;
+}
+
+.whole__search-item::placeholder {
+    text-align: center;
+}
+
+.fa-magnifying-glass {
+    margin: 25px 0 0 7px;
+}
+
+.whole__search-glass {
+    background-color: #585656;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 50px;
+    width: 40px;
+    border-radius: 0 25px 25px 0;
+}
+
+input::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    content: url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/172.png');
+    cursor: pointer;
+    color: red;
+    width: 35%;
+}
+
+.hide {
+    display: none;
+}
+
+.pox {
+    background: url("pokemonki.png") 50% 20% no-repeat;
+    background-size: 25%;
+    width: 100%;
+    height: 100%;
+}
+
+.whole__empty-search {
+    width: 50%;
+    margin: -400px 0 0 25%;
+    text-align: center;
+    line-height: 2rem;
+    color: #585656;
+    display: none;
+    flex-direction: column;
+}

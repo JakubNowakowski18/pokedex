@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     buttonActive.style.display = 'none';
 
 // Aktywacja buttona
+    
     btn.addEventListener('click', async () => {
         offset += 20;
         pokemons = await getApi(`https://pokeapi.co/api/v2/pokemon?limit=20&offset=${offset}`);
@@ -46,12 +47,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                 btn.classList.remove('btn_load');
             }
         }
-        let lastPokemonLoaded = container.lastChild;
+
 
 // Czynności po załadowaniu pokemonów
-//         if (lastPokemonLoaded) {
-//             lastPokemonLoaded.scrollIntoView();
-//         }
         btn.disabled = false;
         buttonRegular.style.display = 'block';
         buttonActive.style.display = 'none';
@@ -59,9 +57,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         // Dodanie sprawdzenia, czy istnieje jakaś wartość w wyszukiwarce, jeśli tak to wykonaj funkcję wyszukania
         search.dispatchEvent(new Event("input"));
         
+        let lastPokemonLoaded = container.lastChild;
+        if (lastPokemonLoaded) {
+            lastPokemonLoaded.scrollIntoView();
+        }
     })
-    
-    
 });
 
 // Funkcja załadowania pokemonów do contentu
@@ -93,24 +93,18 @@ const getApi = async (url) => {
 
 search.addEventListener('input', event => {
     const inputValue = event.target.value;
-    console.log(pokemonContent);
-    const x = pokemonContent.filter(pokemon => pokemon.name.toLowerCase().includes(inputValue));
-    container.innerHTML = '';
-    x.forEach(pokemon => {
-        getPokemon(pokemon);
-        
-    })
-    console.log(inputValue);
     
-    if (x.length === 0) {
-        
+    const renderSearchPokemon = pokemonContent.filter(pokemon => pokemon.name.toLowerCase().includes(inputValue));
+    container.innerHTML = '';
+    renderSearchPokemon.forEach(pokemon => {
+        getPokemon(pokemon);
+    })
+    if (renderSearchPokemon.length === 0) {
         container.classList.add('pox');
         emptySearch.style.display = 'flex';
     } else {
         container.classList.remove('pox');
         emptySearch.style.display = 'none';
     }
-    
-    
 });
 

@@ -17,12 +17,39 @@ h1 {
     grid-row-gap: 15px;
     width: 70%;
     max-height: 660px;
-    margin: 100px auto;
+    margin: 150px auto 100px;
     position: relative;
     overflow: scroll;
     overflow-x: hidden;
     scroll-behavior: smooth;
 
+
+}
+
+#whole__container::-webkit-scrollbar {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    width: 20px;
+    background-color: #F5F5F5;
+}
+
+#whole__container::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+    border: 5px solid white;
+
+
+}
+
+
+#whole__container::-webkit-scrollbar-thumb {
+
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #b1b1b1;
+    border-left: 5px solid white;
+    border-right: 5px solid white;
+    border-radius: 10px;
 }
 
 /*---Style pokemonów---*/
@@ -34,6 +61,7 @@ h1 {
     background-color: #f1f1f1;
     border-radius: 5px;
 }
+
 
 .pokemon:hover {
     background: rgb(169, 166, 166);
@@ -50,10 +78,9 @@ h1 {
     width: 150px;
     height: 50px;
     color: gray;
-
     border: 1px solid gray;
     position: absolute;
-    bottom: 150px;
+    bottom: 50px;
     right: 48%;
 }
 
@@ -70,30 +97,37 @@ h1 {
 /* ---Wyszukiwarka pokemonów--- */
 .whole__search {
     position: absolute;
-    top: 150px;
-    right: 0;
-    margin-right: 20%;
-    width: 300px;
+    top: 50px;
+    left: 35%;
+    width: 30%;
     height: 50px;
     background-color: #c8c8c8;
-    border-radius: 25px;
+    border-radius: 10px;
     box-sizing: border-box;
-    padding: 7px;
+    padding: 2px;
     display: flex;
     justify-content: space-between;
 }
 
 .whole__search-item {
-    border-radius: 25px;
-    width: 250px;
+    width: 100%;
     border: none;
-    padding-left: 15px;
+    padding-left: 40px;
     font-size: 1.1em;
-    color: gray;
+    color: #a0a0a0;
+    border-radius: 10px;
+    font-weight: initial;
+}
+
+input:focus {
+    outline: none;
 }
 
 .whole__search-item::placeholder {
-    text-align: center;
+
+    font-size: 0.9em;
+    color: #c8c8c8;
+    width: 100%;
 }
 
 .fa-magnifying-glass {
@@ -101,20 +135,20 @@ h1 {
 }
 
 .whole__search-glass {
-    background-color: #585656;
+    font-size: 0.7em;
     position: absolute;
     top: 0;
-    right: 0;
+    left: 0;
     height: 50px;
     width: 40px;
-    border-radius: 0 25px 25px 0;
+    color: #a7a7a7;
+    margin-left: 7px;
 }
 
 input::-webkit-search-cancel-button {
     -webkit-appearance: none;
     content: url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/172.png');
     cursor: pointer;
-    color: red;
     width: 35%;
 }
 
